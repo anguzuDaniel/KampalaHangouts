@@ -1,0 +1,215 @@
+<resources>
+    <string name="app_name">Kampala Hangouts</string>
+    <string name="category_restaurants">Restaurants</string>
+    <string name="category_attractions">Attractions</string>
+    <string name="category_parks">Parks</string>
+    <string name="category_events">Events</string>
+    <string name="category_hotels">Hotels</string>
+
+    <string name="category_restaurants_description">Discover the best restaurants in your city.</string>
+    <string name="category_attractions_description">Explore the top attractions and landmarks in your city.</string>
+    <string name="category_parks_description">Find beautiful parks and green spaces to relax and unwind.</string>
+    <string name="category_events_description">Stay updated with the latest events happening in your city.</string>
+    <string name="category_hotels_description">Browse a selection of hotels for your stay in the city.</string>
+
+    <!-- Restaurant 1 -->
+    <string name="restaurant_name_1">Café Javas</string>
+    <string name="restaurant_description_1">Café Javas offers a diverse menu of delicious meals, from breakfast to dinner, in a cozy and vibrant setting.</string>
+
+    <!-- Restaurant 2 -->
+    <string name="restaurant_name_2">The Lawns Restaurant</string>
+    <string name="restaurant_description_2">The Lawns Restaurant provides a unique dining experience with its beautiful garden ambiance and a menu featuring a fusion of international flavors.</string>
+
+    <!-- Restaurant 3 -->
+    <string name="restaurant_name_3">Yujo Izakaya</string>
+    <string name="restaurant_description_3">Yujo Izakaya serves authentic Japanese cuisine, including sushi, sashimi, and a variety of delicious small plates, all prepared with fresh ingredients.</string>
+
+    <!-- Restaurant 4 -->
+    <string name="restaurant_name_4">Khana Khazana</string>
+    <string name="restaurant_description_4">Khana Khazana specializes in Indian cuisine, offering a wide range of flavorful dishes that showcase the rich and diverse flavors of India.</string>
+
+    <!-- Restaurant 5 -->
+    <string name="restaurant_name_5">Mediterraneo Restaurant</string>
+    <string name="restaurant_description_5">Mediterraneo Restaurant brings the tastes of the Mediterranean to Kampala, offering a selection of dishes inspired by the coastal regions of Europe.</string>
+
+    <!-- Restaurant 6 -->
+    <string name="restaurant_name_6">2K Restaurant</string>
+    <string name="restaurant_description_6">2K Restaurant provides a welcoming atmosphere and a menu that features a fusion of African and international flavors, with a focus on grilled specialties.</string>
+
+    <!-- Restaurant 7 -->
+    <string name="restaurant_name_7">Prunes Cafe &amp; Bistro</string>
+    <string name="restaurant_description_7">Prunes Cafe &amp; Bistro offers a cozy and relaxed environment, perfect for enjoying a cup of coffee, pastries, or a variety of continental dishes.</string>
+
+    <!-- Restaurant 8 -->
+    <string name="restaurant_name_8">Java House</string>
+    <string name="restaurant_description_8">Java House is a popular café chain known for its freshly brewed coffee, wide range of meals, and a vibrant atmosphere that appeals to all.</string>
+
+    <!-- Restaurant 9 -->
+    <string name="restaurant_name_9">Biryani House</string>
+    <string name="restaurant_description_9">Biryani House specializes in flavorful biryanis, curries, and traditional Indian dishes, offering a taste of authentic Indian cuisine.</string>
+
+    <!-- Restaurant 10 -->
+    <string name="restaurant_name_10">The Bistro Restaurant</string>
+    <string name="restaurant_description_10">The Bistro Restaurant provides a sophisticated dining experience, offering a diverse menu of gourmet dishes crafted with meticulous attention to detail.</string>
+
+    <!-- Attraction 1 -->
+    <string name="attraction_name_1">Uganda Museum</string>
+    <string name="attraction_description_1">Uganda Museum showcases the rich cultural heritage of Uganda through various exhibitions, artifacts, and historical displays.</string>
+
+    <!-- Attraction 2 -->
+    <string name="attraction_name_2">Kasubi Tombs</string>
+    <string name="attraction_description_2">Kasubi Tombs is a UNESCO World Heritage Site and the burial grounds of the Buganda kings, offering insight into the kingdom\'s history and traditions.</string>
+
+    <!-- Attraction 3 -->
+    <string name="attraction_name_3">Ndere Cultural Centre</string>
+    <string name="attraction_description_3">Ndere Cultural Centre is a vibrant hub for Ugandan culture, showcasing traditional music, dance performances, and cultural workshops.</string>
+
+    <!-- Attraction 4 -->
+    <string name="attraction_name_4">Uganda National Mosque (Gaddafi Mosque)</string>
+    <string name="attraction_description_4">Uganda National Mosque, also known as Gaddafi Mosque, is one of the largest mosques in Africa, offering stunning views of Kampala from its minaret.</string>
+
+    <!-- Attraction 5 -->
+    <string name="attraction_name_5">Kabaka\'s Palace (Lubiri)</string>
+    <string name="attraction_description_5">Kabaka\'s Palace, also known as Lubiri, is the palace of the king of Buganda and serves as an important cultural and historical landmark.</string>
+
+    <!-- Attraction 6 -->
+    <string name="attraction_name_6">Namugongo Martyrs Shrine</string>
+    <string name="attraction_description_6">Namugongo Martyrs Shrine commemorates the Ugandan Martyrs, offering a serene environment for reflection and religious pilgrimage.</string>
+
+    <!-- Attraction 7 -->
+    <string name="attraction_name_7">Bahai Temple</string>
+    <string name="attraction_description_7">Bahai Temple is a beautiful architectural marvel and a place of worship for the Bahai faith, known for its stunning gardens and peaceful ambiance.</string>
+
+    <!-- Attraction 8 -->
+    <string name="attraction_name_8">Munyonyo Martyrs\' Shrine</string>
+    <string name="attraction_description_8">Munyonyo Martyrs\' Shrine honors the 22 Catholic martyrs of Uganda, providing a serene and sacred space for prayer and reflection.</string>
+
+    <!-- Attraction 9 -->
+    <string name="attraction_name_9">Uganda National Botanical Gardens</string>
+    <string name="attraction_description_9">Uganda National Botanical Gardens is a lush oasis featuring a diverse collection of flora, walking trails, and a peaceful environment for nature lovers.</string>
+
+    <!-- Attraction 10 -->
+    <string name="attraction_name_10">Lake Victoria</string>
+    <string name="attraction_description_10">Lake Victoria is the largest lake in Africa and offers a range of activities, including boat rides, fishing, and stunning sunsets over the water.</string>
+
+    <!-- Park 1 -->
+    <string name="park_name_1">Queen Elizabeth National Park</string>
+    <string name="park_description_1">Queen Elizabeth National Park is a diverse wildlife reserve, home to a wide range of animals, including elephants, lions, hippos, and various bird species.</string>
+
+    <!-- Park 2 -->
+    <string name="park_name_2">Bwindi Impenetrable National Park</string>
+    <string name="park_description_2">Bwindi Impenetrable National Park is renowned for its population of mountain gorillas, offering unique trekking experiences and the opportunity to observe these incredible creatures.</string>
+
+    <!-- Park 3 -->
+    <string name="park_name_3">Murchison Falls National Park</string>
+    <string name="park_description_3">Murchison Falls National Park is known for its powerful waterfall, diverse wildlife, including elephants, giraffes, and Nile crocodiles, and exciting boat safaris along the Nile River.</string>
+
+    <!-- Park 4 -->
+    <string name="park_name_4">Kidepo Valley National Park</string>
+    <string name="park_description_4">Kidepo Valley National Park is a remote and rugged wilderness, offering breathtaking landscapes, abundant wildlife, and a truly off-the-beaten-path safari experience.</string>
+
+    <!-- Park 5 -->
+    <string name="park_name_5">Lake Mburo National Park</string>
+    <string name="park_description_5">Lake Mburo National Park is a compact park known for its scenic landscapes, zebras, impalas, and the opportunity to explore the park on foot or by horseback.</string>
+
+    <!-- Park 6 -->
+    <string name="park_name_6">Rwenzori Mountains National Park</string>
+    <string name="park_description_6">Rwenzori Mountains National Park is a UNESCO World Heritage Site, offering stunning mountain scenery, alpine vegetation, and challenging trekking expeditions.</string>
+
+    <!-- Park 7 -->
+    <string name="park_name_7">Kibale National Park</string>
+    <string name="park_description_7">Kibale National Park is famous for its population of chimpanzees, offering an opportunity to trek through the forest and observe these fascinating primates up close.</string>
+
+    <!-- Park 8 -->
+    <string name="park_name_8">Semuliki National Park</string>
+    <string name="park_description_8">Semuliki National Park is known for its unique and diverse ecosystem, including hot springs, tropical rainforests, and rare bird species.</string>
+
+    <!-- Park 9 -->
+    <string name="park_name_9">Mount Elgon National Park</string>
+    <string name="park_description_9">Mount Elgon National Park is home to Mount Elgon, an extinct volcano with vast calderas, waterfalls, caves, and opportunities for hiking and mountain climbing.</string>
+
+    <!-- Park 10 -->
+    <string name="park_name_10">Mgahinga Gorilla National Park</string>
+    <string name="park_description_10">Mgahinga Gorilla National Park offers a unique chance to track and observe the endangered mountain gorillas in their natural habitat, along with stunning volcanic landscapes.</string>
+
+    <!-- Event 1 -->
+    <string name="event_name_1">Kampala City Festival</string>
+    <string name="event_description_1">Kampala City Festival is an annual event celebrating the vibrancy and diversity of Kampala through street parades, music performances, food, and cultural showcases.</string>
+
+    <!-- Event 2 -->
+    <string name="event_name_2">Bayimba International Festival of the Arts</string>
+    <string name="event_description_2">Bayimba International Festival of the Arts is a multi-day event featuring various art forms, including music, dance, theater, visual arts, and poetry.</string>
+
+    <!-- Event 3 -->
+    <string name="event_name_3">Nyege Nyege Festival</string>
+    <string name="event_description_3">Nyege Nyege Festival is a renowned music and arts festival that celebrates the diversity of African music, bringing together artists from different genres and regions.</string>
+
+    <!-- Event 4 -->
+    <string name="event_name_4">Rolex Festival</string>
+    <string name="event_description_4">Rolex Festival celebrates the famous Ugandan street food, the "Rolex," which is a delicious combination of eggs, vegetables, and chapati, along with music, performances, and competitions.</string>
+
+    <!-- Event 5 -->
+    <string name="event_name_5">Kampala Restaurant Week</string>
+    <string name="event_description_5">Kampala Restaurant Week is a culinary event where participating restaurants offer special menus and discounted prices, allowing people to explore the city\'s vibrant food scene.</string>
+
+    <!-- Event 6 -->
+    <string name="event_name_6">Lantern Carnival</string>
+    <string name="event_description_6">Lantern Carnival is a festive event where participants carry beautifully crafted lanterns and parade through the streets, accompanied by music, dance, and entertainment.</string>
+
+    <!-- Event 7 -->
+    <string name="event_name_7">Kampala Fashion Week</string>
+    <string name="event_description_7">Kampala Fashion Week showcases the creativity and talent of Ugandan fashion designers, featuring runway shows, exhibitions, and discussions on the fashion industry.</string>
+
+    <!-- Event 8 -->
+    <string name="event_name_8">Kampala International Theatre Festival</string>
+    <string name="event_description_8">Kampala International Theatre Festival is a platform for theater artists from Uganda and around the world to showcase their productions, engage in workshops, and promote cultural exchange.</string>
+
+    <!-- Event 9 -->
+    <string name="event_name_9">Pearl of Africa Tourism Expo</string>
+    <string name="event_description_9">Pearl of Africa Tourism Expo is an annual event that promotes Uganda\'s tourism industry, featuring exhibitions, presentations, and networking opportunities for industry professionals.</string>
+
+    <!-- Event 10 -->
+    <string name="event_name_10">Ekyooto International Cultural Festival</string>
+    <string name="event_description_10">Ekyooto International Cultural Festival celebrates the diverse cultural heritage of Uganda through traditional music, dance performances, storytelling, and cultural displays.</string>
+
+    <!-- Hotel 1 -->
+    <string name="hotel_name_1">Serena Hotel Kampala</string>
+    <string name="hotel_description_1">Serena Hotel Kampala is a luxurious 5-star hotel offering elegant accommodations, excellent dining options, and a range of amenities for a comfortable stay.</string>
+
+    <!-- Hotel 2 -->
+    <string name="hotel_name_2">Sheraton Kampala Hotel</string>
+    <string name="hotel_description_2">Sheraton Kampala Hotel is a well-known 5-star hotel that combines modern comforts, exceptional service, and a central location in the heart of Kampala.</string>
+
+    <!-- Hotel 3 -->
+    <string name="hotel_name_3">Protea Hotel by Marriott Kampala</string>
+    <string name="hotel_description_3">Protea Hotel by Marriott Kampala offers stylish rooms, a rooftop pool, and a convenient location near popular attractions, making it an ideal choice for both business and leisure travelers.</string>
+
+    <!-- Hotel 4 -->
+    <string name="hotel_name_4">Speke Resort &amp; Conference Centre</string>
+    <string name="hotel_description_4">Speke Resort &amp; Conference Centre is a sprawling property offering luxurious accommodations, multiple dining options, a golf course, and extensive conference facilities.</string>
+
+    <!-- Hotel 5 -->
+    <string name="hotel_name_5">Kampala Serena Hotel</string>
+    <string name="hotel_description_5">Kampala Serena Hotel is a prestigious 5-star hotel known for its elegant architecture, luxurious rooms, and world-class amenities, providing a truly unforgettable experience.</string>
+
+    <!-- Hotel 6 -->
+    <string name="hotel_name_6">Golden Tulip Canaan Kampala</string>
+    <string name="hotel_description_6">Golden Tulip Canaan Kampala offers comfortable rooms, a rooftop terrace, and a convenient location, making it a popular choice for business and leisure travelers.</string>
+
+    <!-- Hotel 7 -->
+    <string name="hotel_name_7">Hotel Africana</string>
+    <string name="hotel_description_7">Hotel Africana provides spacious rooms, a swimming pool, and easy access to the city center, making it a suitable option for both business and leisure stays.</string>
+
+    <!-- Hotel 8 -->
+    <string name="hotel_name_8">Mestil Hotel &amp; Residences</string>
+    <string name="hotel_description_8">Mestil Hotel &amp; Residences offers modern accommodations, a rooftop pool, and a range of facilities for guests to relax and enjoy their stay in Kampala.</string>
+
+    <!-- Hotel 9 -->
+    <string name="hotel_name_9">Fairway Hotel &amp; Spa</string>
+    <string name="hotel_description_9">Fairway Hotel &amp; Spa features comfortable rooms, a spa and wellness center, and a central location near shopping centers and entertainment venues.</string>
+
+    <!-- Hotel 10 -->
+    <string name="hotel_name_10">Humura Resorts</string>
+    <string name="hotel_description_10">Humura Resorts is a boutique hotel offering personalized service, stylish rooms, and a tranquil atmosphere, ensuring a memorable stay in Kampala.</string>
+
+</resources>
