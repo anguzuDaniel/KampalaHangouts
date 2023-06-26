@@ -16,5 +16,5 @@ data class Hangout(
 data class HangoutUiState(
     val hangouts: List<Hangout> = emptyList(),
     val currentHangout: Hangout = DataSource.defaultHangout,
-    val isShowingHangoutPage: Boolean = false
+    val isShowingHangoutPage: Boolean = true
 )

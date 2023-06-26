@@ -9,11 +9,8 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.width
-import androidx.compose.foundation.layout.wrapContentWidth
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
-import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.KeyboardArrowRight
 import androidx.compose.material3.Card
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.MaterialTheme
@@ -32,6 +29,7 @@ import com.example.compose.AppTheme
 import com.example.kampalahangouts.R
 import com.example.kampalahangouts.model.Hangout
 import com.example.kampalahangouts.ui.HangoutViewModel
+import com.example.kampalahangouts.utils.CategoryType
 
 @Composable
 fun HangoutScreen() {
@@ -41,6 +39,7 @@ fun HangoutScreen() {
     HangoutList(
         viewModel = viewModel,
         hangouts = uiState.hangouts,
+        categoryId = CategoryType.ATTRACTIONS,
     )
 }
 
@@ -48,7 +47,8 @@ fun HangoutScreen() {
 fun HangoutList(
     viewModel: HangoutViewModel,
     hangouts: List<Hangout>,
-    modifier: Modifier = Modifier
+    modifier: Modifier = Modifier,
+    categoryId: CategoryType
 ) {
     LazyColumn(
         contentPadding = PaddingValues(dimensionResource(id = R.dimen.padding_medium)),
@@ -56,27 +56,30 @@ fun HangoutList(
         modifier = modifier
     ) {
         items(hangouts, key = { hangout -> hangout.id }) { hangout ->
-            HangoutListItem(
-                hangout = hangout,
-                onItemClicked = {
-                    viewModel.updateHangout(it)
-                    viewModel.navigateToDetailPage()
-                }
-            )
+            if (hangout.category == categoryId) {
+                HangoutListItem(
+                    hangout = hangout,
+                    onHangoutClicked = {
+                        viewModel.updateHangout(it)
+                        viewModel.navigateToDetailPage()
+                    }
+                )
+            }
+
         }
     }
 }
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-private fun HangoutListItem(
+fun HangoutListItem(
     hangout: Hangout,
-    onItemClicked: (Hangout) -> Unit
+    onHangoutClicked: (Hangout) -> Unit
 ) {
     Card(
         modifier = Modifier
             .fillMaxWidth(),
-        onClick = { onItemClicked }
+        onClick = { onHangoutClicked(hangout) }
     ) {
         Row(
             modifier = Modifier
@@ -104,11 +107,7 @@ private fun HangoutListItem(
 
             Spacer(modifier = Modifier.width(10.dp))
 
-            CategoryIcon(
-                image = Icons.Default.KeyboardArrowRight,
-                modifier = Modifier
-                    .wrapContentWidth()
-            )
+            CategoryArrowIcon()
         }
     }
 }
@@ -116,7 +115,7 @@ private fun HangoutListItem(
 @Preview(showBackground = true)
 @Composable
 fun HangoutScreenPreviewDark() {
-    AppTheme(useDarkTheme = true) {
+    AppTheme(darkTheme = true) {
         HangoutScreen()
     }
 }
@@ -124,7 +123,7 @@ fun HangoutScreenPreviewDark() {
 @Preview(showBackground = true)
 @Composable
 fun HangoutScreenPreviewLight() {
-    AppTheme(useDarkTheme = false) {
+    AppTheme(darkTheme = false) {
         HangoutScreen()
     }
 }

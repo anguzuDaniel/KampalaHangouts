@@ -6,6 +6,8 @@
     <string name="category_events">Events</string>
     <string name="category_hotels">Hotels</string>
 
+    <string name="back_button">Back button</string>
+
     <string name="category_restaurants_description">Discover the best restaurants in your city.</string>
     <string name="category_attractions_description">Explore the top attractions and landmarks in your city.</string>
     <string name="category_parks_description">Find beautiful parks and green spaces to relax and unwind.</string>

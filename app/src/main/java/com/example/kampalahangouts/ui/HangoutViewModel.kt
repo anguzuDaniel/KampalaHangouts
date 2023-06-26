@@ -26,7 +26,8 @@ class HangoutViewModel : ViewModel() {
     fun updateHangout(selectedHangout: Hangout) {
         _uiState.update {
             it.copy(
-                currentHangout = selectedHangout
+                currentHangout = selectedHangout,
+                isShowingHangoutPage = false
             )
         }
     }

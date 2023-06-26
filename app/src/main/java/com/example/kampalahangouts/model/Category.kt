@@ -14,6 +14,9 @@ data class Category(
 
 data class CategoryUiState(
     val categories: List<Category> = emptyList(),
+    val catType: CategoryType = DataSource.defaultCategory.catType,
+    @StringRes val catName: Int = DataSource.defaultCategory.name,
     val currentCategory: Category = DataSource.defaultCategory,
-    val isShowingCategoryPage: Boolean = false
+    val currentSelectedId: Category = DataSource.defaultCategory,
+    val isShowingCategoryPage: Boolean = true
 )

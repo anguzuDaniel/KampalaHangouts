@@ -26,7 +26,8 @@ class CategoryViewModel : ViewModel() {
     fun updateCurrentCategory(selectedCategory: Category) {
         _uiState.update {
             it.copy(
-                currentCategory = selectedCategory
+                currentCategory = selectedCategory,
+                isShowingCategoryPage = false
             )
         }
     }
