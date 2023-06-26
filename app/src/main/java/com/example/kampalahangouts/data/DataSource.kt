@@ -1,49 +1,64 @@
 package com.example.kampalahangouts.data
 
 import com.example.kampalahangouts.R
-import com.example.kampalahangouts.data.local.Category
-import com.example.kampalahangouts.data.local.Hangout
+import com.example.kampalahangouts.model.Category
+import com.example.kampalahangouts.model.Hangout
 import com.example.kampalahangouts.utils.CategoryType
 
+//data class Category(
+//    val id: Int,
+//    val catType: CategoryType,
+//    @StringRes val name: Int,
+//    @StringRes val description: Int,
+//    val icon: Int
+//)
 
 object DataSource {
 
-//    fun getCategories(): List<Category> {
-//        return listOf(
-//            Category(
-//                id = 1,
-//                name = R.string.category_attractions,
-//                description = R.string.category_attractions_description,
-//                icon = 0
-//            ),
-//            Category(
-//                id = 2,
-//                name = R.string.category_events,
-//                description = R.string.category_events_description,
-//                icon = 0
-//            ),
-//            Category(
-//                id = 3,
-//                name = R.string.category_hotels,
-//                description = R.string.category_hotels_description,
-//                icon = 0
-//            ),
-//            Category(
-//                id = 4,
-//                name = R.string.category_restaurants,
-//                description = R.string.category_restaurants_description,
-//                icon = 0
-//            ),
-//            Category(
-//                id = 5,
-//                name = R.string.category_parks,
-//                description = R.string.category_parks_description,
-//                icon = 0
-//            ),
-//        )
-//    }
+    val defaultHangout = getHangoutData()[0]
+    val defaultCategory = getCategoryData()[0]
 
-    fun getHangouts(): List<Hangout> {
+    fun getCategoryData(): List<Category> {
+        return listOf(
+            Category(
+                id = 1,
+                catType = CategoryType.ATTRACTIONS,
+                name = R.string.category_attractions,
+                description = R.string.category_attractions_description,
+                icon = 0
+            ),
+            Category(
+                id = 2,
+                catType = CategoryType.EVENTS,
+                name = R.string.category_events,
+                description = R.string.category_events_description,
+                icon = 0
+            ),
+            Category(
+                id = 3,
+                catType = CategoryType.HOTELS,
+                name = R.string.category_hotels,
+                description = R.string.category_hotels_description,
+                icon = 0
+            ),
+            Category(
+                id = 4,
+                catType = CategoryType.RESTAURANTS,
+                name = R.string.category_restaurants,
+                description = R.string.category_restaurants_description,
+                icon = 0
+            ),
+            Category(
+                id = 5,
+                catType = CategoryType.PARKS,
+                name = R.string.category_parks,
+                description = R.string.category_parks_description,
+                icon = 0
+            ),
+        )
+    }
+
+    fun getHangoutData(): List<Hangout> {
         return listOf(
             Hangout(
                 id = 1,

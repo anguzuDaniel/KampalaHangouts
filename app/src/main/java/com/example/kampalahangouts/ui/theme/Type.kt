@@ -45,7 +45,7 @@ val Typography = Typography(
     ),
     labelSmall = TextStyle(
         fontFamily = LATO,
-        fontWeight = FontWeight.Normal,
+        fontWeight = FontWeight.Light,
         fontSize = 18.sp,
         lineHeight = 16.sp,
         letterSpacing = 0.5.sp
