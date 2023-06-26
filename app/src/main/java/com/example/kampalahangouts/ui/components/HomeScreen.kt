@@ -30,6 +30,7 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.viewmodel.compose.viewModel
+import com.example.compose.AppTheme
 import com.example.kampalahangouts.R
 import com.example.kampalahangouts.model.Category
 import com.example.kampalahangouts.ui.CategoryViewModel
@@ -94,13 +95,13 @@ fun CategoryListItem(
             ) {
                 Text(
                     text = stringResource(id = category.name),
-                    style = MaterialTheme.typography.titleLarge,
+                    style = MaterialTheme.typography.bodyMedium,
                     modifier = Modifier
                 )
                 Spacer(modifier = Modifier.height(5.dp))
                 Text(
                     text = stringResource(id = category.description),
-                    style = MaterialTheme.typography.bodyMedium,
+                    style = MaterialTheme.typography.titleSmall,
                     modifier = Modifier
                 )
             }
@@ -130,12 +131,16 @@ fun CategoryIcon(
 
 @Preview(showBackground = true)
 @Composable
-fun HomeScreenCardPreview() {
-    HomeScreen()
+fun HomeScreenCardPreviewDark() {
+    AppTheme(useDarkTheme = true) {
+        HomeScreen()
+    }
 }
 
 @Preview(showBackground = true)
 @Composable
-fun CardScreenListPreview() {
-    HomeScreen()
+fun HomeScreenCardPreviewLight() {
+    AppTheme(useDarkTheme = false) {
+        HomeScreen()
+    }
 }
