@@ -14,10 +14,11 @@ import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
+import androidx.compose.material3.windowsizeclass.WindowWidthSizeClass
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
-import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.dimensionResource
@@ -36,63 +37,84 @@ fun CategoryScreen(
     modifier: Modifier = Modifier
 ) {
     val viewModel: CategoryViewModel = viewModel()
-    val uiState by viewModel.uiState.collectAsState()
+    val uiState = viewModel.uiState.collectAsState().value
 
     CategoryList(
+        viewModel = viewModel,
         uiState = uiState,
-        onCardClicked = {
-            viewModel.updateCurrentCategory(it)
-            viewModel.navigateToDetailPage()
-        },
-        modifier = modifier
+        modifier = modifier,
+        windowSize = WindowWidthSizeClass.Compact
     )
 }
 
+
+@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun CategoryList(
+    viewModel: CategoryViewModel,
     uiState: CategoryUiState,
-    onCardClicked: (Category) -> Unit,
+    windowSize: WindowWidthSizeClass,
     modifier: Modifier = Modifier
 ) {
     val categories = uiState.categories
 
-    LazyColumn(
-        contentPadding = PaddingValues(dimensionResource(id = R.dimen.padding_medium)),
-        verticalArrangement = Arrangement.spacedBy(dimensionResource(id = R.dimen.padding_medium)),
-        modifier = modifier
-    ) {
-        items(categories, key = { category -> category.id }) { category ->
-            CategoryListItem(
-                category = category,
-                selected = false,
-                onCardClicked = {
-                    onCardClicked(category)
-                }
+    Scaffold(
+        topBar = {
+            KampalaHangoutAppBar(
+                categoryName = stringResource(id = R.string.app_name),
+                onBackButtonClicked = {},
+                isShowingHomePage = uiState.isShowingCategoryPage
             )
+        }
+    ) { innerPadding ->
+        LazyColumn(
+            contentPadding = PaddingValues(dimensionResource(id = R.dimen.padding_medium)),
+            verticalArrangement = Arrangement.spacedBy(dimensionResource(id = R.dimen.padding_medium)),
+            modifier = Modifier.padding(innerPadding)
+        ) {
+            items(categories, key = { category -> category.id }) { category ->
+                CategoryListItem(
+                    category = category,
+                    selected = if (windowSize == WindowWidthSizeClass.Expanded) {
+                        uiState.currentCategory?.id == category.id
+                    } else {
+                        false
+                    },
+                    onCardClicked = {
+                        viewModel.updateCurrentCategory(it)
+                        viewModel.navigateToDetailPage()
+                    }
+                )
+            }
         }
     }
 }
 
-
 @Composable
-fun CategoryListOnly(
+fun CategoryListExpanded(
+    viewModel: CategoryViewModel,
     uiState: CategoryUiState,
-    onCardClicked: (Category) -> Unit,
+    windowSize: WindowWidthSizeClass,
     modifier: Modifier = Modifier
 ) {
     val categories = uiState.categories
 
     LazyColumn(
-        contentPadding = PaddingValues(dimensionResource(id = R.dimen.padding_medium)),
+        contentPadding = PaddingValues(dimensionResource(id = R.dimen.padding_small)),
         verticalArrangement = Arrangement.spacedBy(dimensionResource(id = R.dimen.padding_medium)),
         modifier = modifier
     ) {
         items(categories, key = { category -> category.id }) { category ->
             CategoryListItem(
                 category = category,
-                selected = uiState.currentSelectedId.id == category.id,
+                selected = if (windowSize == WindowWidthSizeClass.Expanded) {
+                    uiState.currentCategory?.id == category.id
+                } else {
+                    false
+                },
                 onCardClicked = {
-                    onCardClicked(category)
+                    viewModel.updateCurrentCategory(it)
+                    viewModel.navigateToDetailPage()
                 }
             )
         }
@@ -104,18 +126,23 @@ fun CategoryListOnly(
 fun CategoryListItem(
     category: Category,
     selected: Boolean,
-    onCardClicked: () -> Unit
+    onCardClicked: (Category) -> Unit
 ) {
     Card(
         modifier = Modifier
             .fillMaxWidth(),
+        elevation = CardDefaults.cardElevation(
+            defaultElevation = 2.dp
+        ),
         colors = CardDefaults.cardColors(
             containerColor = if (selected)
                 MaterialTheme.colorScheme.primaryContainer
             else
                 MaterialTheme.colorScheme.secondaryContainer
         ),
-        onClick = onCardClicked
+        onClick = {
+            onCardClicked(category)
+        }
     ) {
         Row(
             modifier = Modifier

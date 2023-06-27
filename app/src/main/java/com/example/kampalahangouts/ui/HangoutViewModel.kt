@@ -5,6 +5,7 @@ import com.example.kampalahangouts.data.DataSource
 import com.example.kampalahangouts.data.DataSource.defaultHangout
 import com.example.kampalahangouts.model.Hangout
 import com.example.kampalahangouts.model.HangoutUiState
+import com.example.kampalahangouts.utils.CategoryType
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.update
 
@@ -32,6 +33,16 @@ class HangoutViewModel : ViewModel() {
         }
     }
 
+    fun showHangoutOnLarge(selectedHangout: Hangout) {
+        _uiState.update {
+            it.copy(
+                currentHangout = selectedHangout,
+                isShowingHangoutPage = true
+            )
+        }
+    }
+
+
     fun navigateToListPage() {
         _uiState.update {
             it.copy(isShowingHangoutPage = true)
@@ -42,5 +53,9 @@ class HangoutViewModel : ViewModel() {
         _uiState.update {
             it.copy(isShowingHangoutPage = false)
         }
+    }
+
+    fun getHangoutByType(name: CategoryType): Hangout? {
+        return DataSource.getHangoutData().find { it.category == name }
     }
 }

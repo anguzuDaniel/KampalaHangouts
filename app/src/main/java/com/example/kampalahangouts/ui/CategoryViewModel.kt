@@ -23,16 +23,31 @@ class CategoryViewModel : ViewModel() {
 
     val uiState = _uiState
 
+    fun initialize() {
+        _uiState.value =
+            CategoryUiState(
+                categories = DataSource.getCategoryData(),
+                currentCategory = DataSource.getCategoryData().getOrElse(0) {
+                    defaultCategory
+                }
+            )
+    }
+
     fun updateCurrentCategory(selectedCategory: Category) {
+        // when a category is selected, update the current category
+        // and set the category type to the selected category type
         _uiState.update {
             it.copy(
                 currentCategory = selectedCategory,
+                catType = selectedCategory.categoryType,
+                catName = selectedCategory.name,
                 isShowingCategoryPage = false
             )
         }
     }
 
     fun navigateToListPage() {
+        // when the list page is navigated to, set the isShowingCategoryPage to true
         _uiState.update {
             it.copy(isShowingCategoryPage = true)
         }
@@ -43,4 +58,6 @@ class CategoryViewModel : ViewModel() {
             it.copy(isShowingCategoryPage = false)
         }
     }
+
+
 }

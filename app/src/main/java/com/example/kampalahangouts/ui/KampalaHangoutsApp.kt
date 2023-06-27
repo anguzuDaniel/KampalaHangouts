@@ -1,121 +1,121 @@
 package com.example.kampalahangouts.ui
 
-import androidx.compose.foundation.layout.Box
-import androidx.compose.foundation.layout.padding
-import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.ArrowBack
-import androidx.compose.material3.ExperimentalMaterial3Api
-import androidx.compose.material3.Icon
-import androidx.compose.material3.IconButton
-import androidx.compose.material3.MaterialTheme
-import androidx.compose.material3.Scaffold
-import androidx.compose.material3.Text
-import androidx.compose.material3.TopAppBar
-import androidx.compose.material3.TopAppBarDefaults
+import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.width
+import androidx.compose.material3.windowsizeclass.WindowWidthSizeClass
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
-import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.unit.dp
 import androidx.lifecycle.viewmodel.compose.viewModel
-import com.example.kampalahangouts.R
+import com.example.kampalahangouts.model.Category
 import com.example.kampalahangouts.model.CategoryUiState
+import com.example.kampalahangouts.ui.components.CategoryList
+import com.example.kampalahangouts.ui.components.CategoryListExpanded
+import com.example.kampalahangouts.ui.components.HangoutListOnly
 import com.example.kampalahangouts.ui.components.CategoryScreen
 import com.example.kampalahangouts.ui.components.HangoutList
-import com.example.kampalahangouts.ui.components.HangoutListItem
 import com.example.kampalahangouts.ui.components.SelectedHangOut
+import com.example.kampalahangouts.ui.components.SelectedHangOutExpand
+import com.example.kampalahangouts.utils.WindowStateUiUtils
 
 
-@OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun KampalaHangoutApp() {
+fun KampalaHangoutApp(windowSize: WindowWidthSizeClass) {
     val categoryViewModel: CategoryViewModel = viewModel()
-    val categoryUiState by categoryViewModel.uiState.collectAsState()
+    val categoryUiState = categoryViewModel.uiState.collectAsState().value
 
-    Scaffold(
-        topBar = {
-            KampalaHangoutAppBar(
-                categoryName = stringResource(id = categoryUiState.catName),
-                onBackButtonClicked = { /*TODO*/ },
-                isShowingHomePage = categoryUiState.isShowingCategoryPage
-            )
-        }
-    ) { innerPadding ->
-        KampalaHangoutAppContent(
-            categoryUiState = categoryUiState,
-            modifier = Modifier.padding(innerPadding)
-        )
-    }
+    KampalaHangoutAppContent(
+        categoryUiState = categoryUiState,
+        categoryViewModel = categoryViewModel,
+        windowSize = windowSize
+    )
 }
 
 
 @Composable
 fun KampalaHangoutAppContent(
+    windowSize: WindowWidthSizeClass,
     categoryUiState: CategoryUiState,
+    categoryViewModel: CategoryViewModel,
     modifier: Modifier = Modifier
 ) {
+    val contentDisplayStyle: WindowStateUiUtils
 
     val viewModel: HangoutViewModel = viewModel()
     val uiState = viewModel.uiState.collectAsState().value
 
-    if (!categoryUiState.isShowingCategoryPage) {
-        if (uiState.isShowingHangoutPage) {
-            HangoutList(
+    when (windowSize) {
+        WindowWidthSizeClass.Compact -> {
+            contentDisplayStyle = WindowStateUiUtils.NORMAL
+        }
+
+        WindowWidthSizeClass.Medium -> {
+            contentDisplayStyle = WindowStateUiUtils.NORMAL
+        }
+
+        WindowWidthSizeClass.Expanded -> {
+            contentDisplayStyle = WindowStateUiUtils.FULL_SCREEN
+        }
+
+        else -> {
+            contentDisplayStyle = WindowStateUiUtils.NORMAL
+        }
+    }
+
+    if (contentDisplayStyle == WindowStateUiUtils.FULL_SCREEN) {
+        Row(modifier = Modifier.fillMaxSize()) {
+            CategoryListExpanded(
+                viewModel = categoryViewModel,
+                uiState = categoryUiState,
+                windowSize = windowSize,
+                modifier = Modifier.weight(1f)
+            )
+            Spacer(modifier = Modifier.width(8.dp))
+            HangoutListOnly(
                 viewModel = viewModel,
                 hangouts = uiState.hangouts,
                 categoryId = categoryUiState.catType,
-                modifier = modifier
+                onBackPressed = {},
+                modifier = Modifier.weight(1f)
             )
-        } else {
-            SelectedHangOut(
+            Spacer(modifier = Modifier.width(8.dp))
+            SelectedHangOutExpand(
                 hangout = uiState.currentHangout,
+                modifier = Modifier.weight(1f)
+            )
+        }
+    } else {
+
+        if (!categoryUiState.isShowingCategoryPage) {
+            if (uiState.isShowingHangoutPage) {
+                HangoutList(
+                    viewModel = viewModel,
+                    hangouts = uiState.hangouts,
+                    categoryId = categoryUiState.catType,
+                    onBackPressed = {
+                        categoryViewModel.navigateToListPage()
+                    },
+                    modifier = modifier
+                )
+            } else {
+                SelectedHangOut(
+                    hangout = uiState.currentHangout,
+                    onBackPressed = {
+                        viewModel.navigateToListPage()
+                    },
+                    modifier = modifier
+                )
+            }
+        } else {
+            CategoryScreen(
                 modifier = modifier
             )
         }
-
-    } else {
-        CategoryScreen(
-            modifier = modifier
-        )
     }
 }
 
-@OptIn(ExperimentalMaterial3Api::class)
-@Composable
-fun KampalaHangoutAppBar(
-    categoryName: String = "",
-    onBackButtonClicked: () -> Unit,
-    isShowingHomePage: Boolean,
-    modifier: Modifier = Modifier
-) {
-    TopAppBar(
-        title = {
-            Text(
-                text = if (!isShowingHomePage) {
-                    categoryName
-                } else {
-                    stringResource(id = R.string.app_name)
-                }
-            )
-        },
-        navigationIcon = if (!isShowingHomePage) {
-            {
-                IconButton(onClick = onBackButtonClicked) {
-                    Icon(
-                        imageVector = Icons.Filled.ArrowBack,
-                        contentDescription = stringResource(id = R.string.back_button)
-                    )
-                }
-            }
-        } else {
-            { Box() {} }
-        },
-        colors = TopAppBarDefaults.smallTopAppBarColors(
-            containerColor = MaterialTheme.colorScheme.primary,
-            titleContentColor = MaterialTheme.colorScheme.onPrimary,
-            navigationIconContentColor = MaterialTheme.colorScheme.onPrimary,
-            actionIconContentColor = MaterialTheme.colorScheme.onPrimary
-        ),
-        modifier = modifier
-    )
-}
+
+
